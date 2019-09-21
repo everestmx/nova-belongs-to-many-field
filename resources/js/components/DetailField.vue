@@ -1,7 +1,7 @@
 <template>
     <panel-item :field="field">
         <template slot="value">
-            <span v-for="(value, i) of values" v-if="values" class="item">{{ value }}</span>
+            <span v-for="(value, i) of values" v-if="values" class="btmf_item">{{ value }}</span>
             <span v-else>—</span>
         </template>
     </panel-item>
@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style>
-    span.item {
+    .btmf_item {
         color: #fff;
         position: relative;
         display: inline-block;
