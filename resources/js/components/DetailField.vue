@@ -29,6 +29,7 @@ export default {
         position: relative;
         display: inline-block;
         padding: 2px 10px 2px 10px;
+        margin: 0 0 5px 5px;
         border-radius: 3px;
         background: #41b883;
         white-space: nowrap;
