@@ -21,7 +21,7 @@ class BelongsToManyField extends Field
     /**
      * @var bool
      */
-    public $showOnDetail = false;
+    public $showOnDetail = true;
 
     /**
      * @var bool
@@ -39,7 +39,7 @@ class BelongsToManyField extends Field
      * @var string
      */
 
-    public $component = 'belongs-to-many-field';
+    public $component = 'belongs-to-many-tags';
 
     /**
      * @var null
@@ -55,7 +55,6 @@ class BelongsToManyField extends Field
      *
      * @return void
      */
-    //Code by @drsdre
     public function __construct($name, $attribute = null, $resource = null)
     {
         parent::__construct($name, $attribute);

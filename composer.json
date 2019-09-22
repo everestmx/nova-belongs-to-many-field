@@ -1,11 +1,10 @@
 {
-    "name": "everestmx/belongs-to-many-field",
+    "name": "everestmx/nova-belongs-to-many-field",
     "description": "BelongsToMany nova representation in field.",
     "keywords": [
         "laravel",
         "nova",
-        "belongsToMany",
-        "Many to Many Field"
+        "field"
     ],
     "license": "MIT",
     "require": {
