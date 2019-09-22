@@ -20,8 +20,8 @@ class FieldServiceProvider extends ServiceProvider
     public function boot()
     {
         Nova::serving(function (ServingNova $event) {
-            Nova::script('belongs-to-many-field', __DIR__ . '/../dist/js/field.js');
-            Nova::style('belongs-to-many-field', __DIR__ . '/../dist/css/field.css');
+            Nova::script('belongs-to-many-tags', __DIR__ . '/../dist/js/field.js');
+            Nova::style('belongs-to-many-tags', __DIR__ . '/../dist/css/field.css');
         });
     }
 

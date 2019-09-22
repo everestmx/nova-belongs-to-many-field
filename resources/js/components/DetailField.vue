@@ -1,7 +1,7 @@
 <template>
     <panel-item :field="field">
         <template slot="value">
-            <span v-for="(value, i) of values" v-if="values" class="item">{{ value }}</span>
+            <span v-for="(value, i) of values" v-if="values" class="btmt-item">{{ value }}</span>
             <span v-else>—</span>
         </template>
     </panel-item>
@@ -13,6 +13,10 @@ export default {
 
     computed: {
 		values() {
+			if (!this.field.value) {
+				return;
+            }
+
 			return this.field.value.map(val => val[this.field.optionsLabel || 'name']).filter(val => !!val);
 		},
     }
@@ -20,16 +24,15 @@ export default {
 </script>
 
 <style>
-    span.item {
+    .btmt-item {
         color: #fff;
         position: relative;
         display: inline-block;
-        padding: 4px 10px 4px 10px;
-        border-radius: 5px;
-        margin-right: 10px;
+        padding: 2px 10px 2px 10px;
+        border-radius: 3px;
         background: #41b883;
         white-space: nowrap;
-        overflow: hidden;
         text-overflow: ellipsis;
+        font-size: 14px;
     }
 </style>

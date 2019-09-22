@@ -9,6 +9,7 @@
                 :track-by="optionsLabel"
                 :class="errorClasses"
                 :placeholder="field.name"
+                :disabled="isReadonly"
                 v-model="value"
             />
             </div>
@@ -40,7 +41,7 @@ export default {
          * Set the initial, internal value for the field.
          */
         setInitialValue() {
-            this.options = this.field.options;
+            this.options = this.field.options || [];
             this.optionsLabel = this.field.optionsLabel ? this.field.optionsLabel : 'name';
             this.value = this.field.value || ''
         },
