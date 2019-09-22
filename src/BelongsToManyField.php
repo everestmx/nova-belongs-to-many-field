@@ -3,6 +3,7 @@
 namespace Everestmx\BelongsToManyField;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Everestmx\BelongsToManyField\Rules\ArrayRules;
@@ -75,6 +76,19 @@ class BelongsToManyField extends Field
                 unset($request->$attribute);
             }
         });
+    }
+
+    /**
+     * Determine if the field should be displayed for the given request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    public function authorize(Request $request)
+    {
+        return call_user_func(
+            [$this->resourceClass, 'authorizedToViewAny'], $request
+        ) && parent::authorize($request);
     }
 
     /**
