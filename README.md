@@ -5,7 +5,7 @@ Belongs To Many field to represent many to many relationship in field. This Fiel
 
 ### Installation
 ```bash
-composer require everestmx/belongs-to-many-field
+composer require everestmx/nova-belongs-to-many-field
 ```
 
 ## Deprecation
