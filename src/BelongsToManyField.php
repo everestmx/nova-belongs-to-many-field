@@ -9,8 +9,7 @@ use Laravel\Nova\Fields\Field;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
- * Class BelongsToManyField
- * @package Everestmx\BelongsToManyField
+ * Class BelongsToManyField.
  */
 class BelongsToManyField extends Field
 {
@@ -39,7 +38,6 @@ class BelongsToManyField extends Field
      *
      * @var string
      */
-
     public $component = 'belongs-to-many-tags';
 
     /**
@@ -62,9 +60,9 @@ class BelongsToManyField extends Field
 
         $resource = $resource ?? ResourceRelationshipGuesser::guessResource($name);
 
-        $this->resource               = $resource;
-        $this->resourceClass          = $resource;
-        $this->resourceName           = $resource::uriKey();
+        $this->resource = $resource;
+        $this->resourceClass = $resource;
+        $this->resourceName = $resource::uriKey();
         $this->manyToManyRelationship = $this->attribute;
 
         $this->fillUsing(function ($request, $model, $attribute, $requestAttribute) use ($resource) {
@@ -81,7 +79,8 @@ class BelongsToManyField extends Field
     /**
      * Determine if the field should be displayed for the given request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return bool
      */
     public function authorize(Request $request)
@@ -96,7 +95,7 @@ class BelongsToManyField extends Field
      *
      * @return BelongsToManyField
      */
-    public function optionsLabel(string $optionsLabel = "name")
+    public function optionsLabel(string $optionsLabel = 'name')
     {
         return $this->withMeta(['optionsLabel' => $optionsLabel]);
     }
@@ -175,34 +174,23 @@ class BelongsToManyField extends Field
      */
     public function jsonSerialize()
     {
-
         /**
          * @var NovaRequest $request
          */
         $request = app(NovaRequest::class);
 
-        if (isset($this->meta[ 'options' ]) && ($request->isUpdateOrUpdateAttachedRequest() || $request->isCreateOrAttachRequest())) {
-
-            $this->meta[ 'options' ] = $this->meta[ 'options' ]->flatMap(function ($option) {
-
+        if (isset($this->meta['options']) && ($request->isUpdateOrUpdateAttachedRequest() || $request->isCreateOrAttachRequest())) {
+            $this->meta['options'] = $this->meta['options']->flatMap(function ($option) {
                 if (is_callable($option)) {
-
                     return call_user_func($option);
-
                 }
 
-                return [ $option ];
-
+                return [$option];
             });
-
         } else {
-
-            $this->meta[ 'options' ] = collect();
-
+            $this->meta['options'] = collect();
         }
 
         return parent::jsonSerialize();
-
     }
-
 }
