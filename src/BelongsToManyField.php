@@ -6,6 +6,7 @@ use Everestmx\BelongsToManyField\Rules\ArrayRules;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Field;
+use Laravel\Nova\Http\Requests\NovaRequest;
 
 /**
  * Class BelongsToManyField.
@@ -164,5 +165,32 @@ class BelongsToManyField extends Field
                 $this->value = $value;
             }
         }
+    }
+
+    /**
+     * Prepare the field for JSON serialization.
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        /**
+         * @var NovaRequest
+         */
+        $request = app(NovaRequest::class);
+
+        if (isset($this->meta['options']) && ($request->isUpdateOrUpdateAttachedRequest() || $request->isCreateOrAttachRequest())) {
+            $this->meta['options'] = $this->meta['options']->flatMap(function ($option) {
+                if (is_callable($option)) {
+                    return call_user_func($option);
+                }
+
+                return [$option];
+            });
+        } else {
+            $this->meta['options'] = collect();
+        }
+
+        return parent::jsonSerialize();
     }
 }
