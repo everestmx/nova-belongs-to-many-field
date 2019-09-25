@@ -167,7 +167,7 @@ class BelongsToManyField extends Field
         }
     }
     
-        /**
+    /**
      * Prepare the field for JSON serialization.
      *
      * @return array
@@ -175,7 +175,7 @@ class BelongsToManyField extends Field
     public function jsonSerialize()
     {
         /**
-         * @var NovaRequest $request
+         * @var NovaRequest
          */
         $request = app(NovaRequest::class);
 
