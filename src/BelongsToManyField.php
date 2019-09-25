@@ -166,7 +166,7 @@ class BelongsToManyField extends Field
             }
         }
     }
-    
+
     /**
      * Prepare the field for JSON serialization.
      *
