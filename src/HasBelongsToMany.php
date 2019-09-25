@@ -1,11 +1,11 @@
 <?php
+
 namespace Everestmx\BelongsToManyField;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
- * Trait HasBelongsToMany
- * @package Everestmx\BelongsToManyField
+ * Trait HasBelongsToMany.
  */
 trait HasBelongsToMany
 {
