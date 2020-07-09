@@ -91,13 +91,14 @@ class BelongsToManyField extends Field
     }
 
     /**
-     * @param string $optionsLabel
+     * @param string|array $optionsLabel
+     * @param string $optionsSeparator
      *
      * @return BelongsToManyField
      */
-    public function optionsLabel(string $optionsLabel = 'name')
+    public function optionsLabel($optionsLabel = 'name',string $optionsSeparator = null)
     {
-        return $this->withMeta(['optionsLabel' => $optionsLabel]);
+        return $this->withMeta(['optionsLabel' => $optionsLabel,'optionsSeparator' => $optionsSeparator]);
     }
 
     /**
