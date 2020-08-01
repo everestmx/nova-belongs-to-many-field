@@ -21,7 +21,8 @@ In the resource you need to pass:
 use Everestmx\BelongsToManyField\BelongsToManyField;
 
 public function fields(Request $request){
-    BelongsToManyField::make('Role Label', 'roles', 'App\Nova\Role')->options(\App\Role::all()),
+    BelongsToManyField::make('Role Label', 'roles', 'App\Nova\Role')
+        ->options(\App\Role::all()),
 }
 ```
 
@@ -34,7 +35,9 @@ Optional
 use Everestmx\BelongsToManyField\BelongsToManyField;
 
 public function fields(Request $request){
-    BelongsToManyField::make('Role Label', 'roles', 'App\Nova\Role')->options(\App\Role::all())->optionsLabel('title'),
+    BelongsToManyField::make('Role Label', 'roles', 'App\Nova\Role')
+        ->options(\App\Role::all())
+        ->optionsLabel('title'),
 }
 ```
 
@@ -44,7 +47,9 @@ public function fields(Request $request){
 use Everestmx\BelongsToManyField\BelongsToManyField;
 
 public function fields(Request $request){
-    BelongsToManyField::make('Role Label', 'roles', 'App\Nova\Role')->options(\App\Role::all())->isAction(),
+    BelongsToManyField::make('Role Label', 'roles', 'App\Nova\Role')
+        ->options(\App\Role::all())
+        ->isAction(),
 }
 ```
 To obtain the data that is send in action do it: 
