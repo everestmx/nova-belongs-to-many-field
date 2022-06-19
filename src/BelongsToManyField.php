@@ -172,7 +172,7 @@ class BelongsToManyField extends Field
      *
      * @return array
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         /**
          * @var NovaRequest
